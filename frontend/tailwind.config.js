@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         ink: "#020406"",       // primary dark background — dusk, not black
         paper: "#F7F5F1",     // warm light surface
-        amber: #f6861e",     // "stage ahead" signal — porch-light warmth
+        amber: "#f6861e",     // "stage ahead" signal — porch-light warmth
         sage: "5B7065",      // resolved / calm accent
         slate: "#8B93A6",     // muted text, metadata, trail markers
         inkmuted: "#1f1f20",  // slightly lighter than ink, for cards on dark bg
