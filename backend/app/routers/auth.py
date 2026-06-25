@@ -13,12 +13,14 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 def _set_auth_cookie(response: Response, user_id: str) -> None:
     token = create_access_token(user_id)
+    is_production = settings.environment != "development"
+
     response.set_cookie(
         key="access_token",
         value=token,
         httponly=True,
-        secure=settings.environment != "development",
-        samesite="lax",
+        secure=is_production,
+        samesite="none" if is_production else "lax",
         max_age=settings.jwt_expire_minutes * 60,
     )
 
@@ -54,9 +56,13 @@ def login(payload: LoginRequest, response: Response, db: Session = Depends(get_d
 
 @router.post("/logout")
 def logout(response: Response):
-    response.delete_cookie("access_token")
+    is_production = settings.environment != "development"
+    response.delete_cookie(
+        "access_token",
+        secure=is_production,
+        samesite="none" if is_production else "lax",
+    )
     return {"detail": "Logged out"}
-
 
 @router.post("/google", response_model=UserOut)
 def google_auth(payload: GoogleAuthRequest, response: Response, db: Session = Depends(get_db)):
