@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#1C2333",       // primary dark background — dusk, not black
+        ink: "#020406"",       // primary dark background — dusk, not black
         paper: "#F7F5F1",     // warm light surface
-        amber: "#C76B3C",     // "stage ahead" signal — porch-light warmth
-        sage: "#5B7065",      // resolved / calm accent
+        amber: #f6861e",     // "stage ahead" signal — porch-light warmth
+        sage: "5B7065",      // resolved / calm accent
         slate: "#8B93A6",     // muted text, metadata, trail markers
-        inkmuted: "#2A3247",  // slightly lighter than ink, for cards on dark bg
+        inkmuted: "#1f1f20",  // slightly lighter than ink, for cards on dark bg
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
